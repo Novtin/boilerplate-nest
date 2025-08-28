@@ -1,0 +1,28 @@
+services:
+  node-app:
+    image: "node:22.18"
+    user: "node"
+    working_dir: /home/node/app
+    volumes:
+      - ./:/home/node/app
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=${APP_ENVIRONMENT}
+      - PORT
+    ports:
+      - "$PORT:$PORT"
+    command: ["npm", "run", "start${START_MODE}"]
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    ports:
+      - "$APP_DATABASE_PORT:$APP_DATABASE_PORT/tcp"
+    environment:
+      POSTGRES_PASSWORD: $APP_DATABASE_PASSWORD
+      APP_DB: $APP_DATABASE_NAME
+    volumes:
+      - ./db:/var/lib/postgresql/data
+      - ./init-db:/docker-entrypoint-initdb.d

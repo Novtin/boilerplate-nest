@@ -149,3 +149,38 @@ pm2 --name=boilerplatenest12345-nest-backend --cwd=/var/www/boilerplatenest12345
 ```
 
 2. Запустить `pm2 save` для сохранения изменений в PM2
+
+## Запуск в Docker
+
+Имеющийся в корне `docker-compose.yml` позволяет запустить в docker-контейнерах приложение и БД, а также
+выполнять команды по генерации миграций, применению миграций и пр.
+
+### Установка nodejs-библиотек
+```shell
+docker compose run --rm --no-deps node-app yarn
+```
+
+### Запуск в режиме разработчика (watch mode)
+```shell
+docker compose --profile dev-mode up
+```
+
+### Генерация миграций
+```shell
+docker compose run --rm node-app npm run migrate:generate
+```
+
+### Применение миграций
+```shell
+docker compose run --rm node-app npm run migrate
+```
+
+### Сборка прод-версии
+```shell
+docker compose run --rm --no-deps node-app npm run build
+```
+
+### Запуск собранной прод-версии
+```shell
+docker compose up
+```
