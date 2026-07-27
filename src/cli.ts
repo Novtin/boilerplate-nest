@@ -1,3 +1,4 @@
+import './base/infrastructure/sentry/initSentry';
 import {ConsoleApplication} from '@steroidsjs/nest/infrastructure/applications/console/ConsoleApplication';
 import {Module} from '@steroidsjs/nest/infrastructure/decorators/Module';
 import baseConfig from '@steroidsjs/nest/infrastructure/applications/console/config';

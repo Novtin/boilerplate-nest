@@ -1,3 +1,4 @@
+import './base/infrastructure/sentry/initSentry';
 import {RestApplication} from '@steroidsjs/nest/infrastructure/applications/rest/RestApplication';
 import {IModule, Module} from '@steroidsjs/nest/infrastructure/decorators/Module';
 import baseConfig from '@steroidsjs/nest/infrastructure/applications/rest/config';
@@ -50,10 +51,6 @@ const appModuleConfig: IModule = {
                 ...config.database,
                 // Раскомментировать для отладки
                 // logging: ['schema', 'warn', 'error', 'migration'/*, 'query'/**/],
-            },
-            sentry: {
-                dsn: process.env.APP_SENTRY_DSN,
-                environment: process.env.APP_ENVIRONMENT,
             },
         } as IRestAppModuleConfig;
     },
