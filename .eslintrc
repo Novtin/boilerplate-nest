@@ -3,7 +3,7 @@
         "@steroidsjs/eslint-config/backend"
     ],
     "rules": {
-      "import/no-extraneous-dependencies": ["error", { "devDependencies": ["**/*.test.ts"] }]
+        "import/no-extraneous-dependencies": ["error", { "devDependencies": ["**/*.test.ts"] }]
     },
     "ignorePatterns": [
         "src/**/migrations/*.ts"
