@@ -35,7 +35,7 @@
     "@nestjs/swagger": "^8.1.1",
     "@ntegral/nestjs-sentry": "^4.0.0",
     "@sentry/node": "^7.66.0",
-    "@steroidsjs/eslint-config": "^3.0.4",
+    "@steroidsjs/eslint-config": "^4.0.0",
     "@steroidsjs/nest": "^4.1.0",
     "@steroidsjs/nest-auth": "^0.3.0",
     "@steroidsjs/nest-file": "^0.4.1",
